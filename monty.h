@@ -38,13 +38,9 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void run_cmd(FILE *fp, int line, char *o, instruction_t *ops, stack_t **stack);
-void threecrabs(FILE *fp, char *o, stack_t **stack);
-int is_valid_cmd(char *cmd, instruction_t *opcodes);
-int is_valid_val(char *val);
+void run_cmd(char *opcode, stack_t **stack, unsigned int line_number);
 void push(stack_t **head, unsigned int n);
 void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number);
-void free_list(stack_t *head);
-void free_node(stack_t *node);
+void free_stack(stack_t *stack);
 
 #endif

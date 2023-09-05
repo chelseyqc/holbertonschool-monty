@@ -3,28 +3,14 @@
 /**
 *
 */
-void free_list(stack_t *head)
+void free_stack(stack_t *stack)
 {
-	stack_t *node;
-	if (head != NULL)
-	{
-		node = head;
-		if (node != NULL && node->next != NULL)
-		{
-			free_node(node->next);
-		}
-		free(head);
-	}
-}
+	stack_t *next_stack;
 
-/**
-*
-*/
-void free_node(stack_t *node)
-{
-	if (node->next != NULL)
+	while (stack != NULL)
 	{
-		free_node(node->next);
+		next_stack = stack->next;
+		free(stack);
+		stack = next_stack;
 	}
-	free(node);
 }
